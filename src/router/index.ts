@@ -5,7 +5,22 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    // redirect: '/about',
+    // children: [
+    //   {
+    //     path: 'about',
+    //     name: 'About',
+    //     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+    //     children: [
+    //       {
+    //         path: 'zhang',
+    //         name: 'zhang',
+    //         component: () => import(/* webpackChunkName: "about" */ '../views/zhang.vue')
+    //       },
+    //     ]
+    //   }
+    // ]
   },
   {
     path: '/about',
@@ -13,7 +28,7 @@ const routes: Array<RouteRecordRaw> = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
   },
   {
     path: '/toRaw',
@@ -35,11 +50,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'toRef',
     component: () => import(/* webpackChunkName: "about" */ '../views/toRef.vue')
   },
-  {
-    path: '/customRef',
-    name: 'customRef',
-    component: () => import(/* webpackChunkName: "about" */ '../views/customRef.vue')
-  },
+  // {
+  //   path: '/customRef',
+  //   name: 'customRef',
+  //   component: () => import(/* webpackChunkName: "about" */ '../views/customRef.vue')
+  // },
 ]
 
 const router = createRouter({

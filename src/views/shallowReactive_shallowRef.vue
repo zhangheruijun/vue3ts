@@ -12,9 +12,16 @@
     <li>{{ refContent.list.status }}</li>
     <li>{{ refContent.list.content.text }}</li>
   </ul>
+  <div>{{ dataInject }}</div>
 </template>
 <script lang='ts'>
-import { defineComponent, shallowRef, shallowReactive, triggerRef } from "vue";
+import {
+  defineComponent,
+  shallowRef,
+  shallowReactive,
+  triggerRef,
+  inject,
+} from "vue";
 /*
 shallowRef,shallowReactive都是都是递归监听;非递归监听是用于深层数据的响应带来的性能优化，不用每层都去创建Proxy一般用在数据多、层次深的时候用
 1.shallowReactive：监听的是shallowReactive(10)->shallowReactive({value:10});只监听.value变化,value才是第一层,当第一层变化后子层才会变化
@@ -22,7 +29,13 @@ shallowRef,shallowReactive都是都是递归监听;非递归监听是用于深�
 */
 export default defineComponent({
   name: "shallowReactive_shallowRef",
+  props: {
+    modelValue: String,
+  },
+  // emits: ["asd"],
   setup() {
+    //inject的用法
+    const dataInject = inject("pcd");
     //----------------------------------------shallowReactive------------------------------------------
     const reactiveState = shallowReactive({
       name: "张三",
@@ -65,7 +78,13 @@ export default defineComponent({
       //   },
       // };
     };
-    return { reactiveState, reactFun, refContent, reactFunRef };
+    return {
+      reactiveState,
+      reactFun,
+      refContent,
+      reactFunRef,
+      dataInject,
+    };
   },
 });
 </script>
