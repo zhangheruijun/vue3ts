@@ -23,7 +23,7 @@ export default defineComponent({
       list: ["测试一", "测试二", "测试三", "测试四"],
     });
     const pareventFun = (e: object) => {
-      console.log(temRef);
+      console.log(temRef,'7777777777');
       con.list[0] = "我草变了";
       // emit('par-hand',con.name)
       emit("update:msg", "我干啊");

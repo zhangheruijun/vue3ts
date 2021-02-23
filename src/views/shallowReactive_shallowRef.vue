@@ -35,7 +35,7 @@ export default defineComponent({
   // emits: ["asd"],
   setup() {
     //inject的用法
-    const dataInject = inject("pcd");
+    const dataInject = inject("pcd",'此处可写默认值');
     //----------------------------------------shallowReactive------------------------------------------
     const reactiveState = shallowReactive({
       name: "张三",
