@@ -8,29 +8,29 @@
 </template>
 
 <script lang="ts">
-import { ref, defineComponent, reactive, toRefs, watchEffect } from "vue";
+import { ref, defineComponent, reactive, toRefs, watchEffect } from 'vue';
 
 export default defineComponent({
-  name: "HelloWorld",
+  name: 'HelloWorld',
   props: {
     msg: String,
   },
   setup(propsPar, { emit }) {
     const temRef = ref(null);
     const con = reactive({
-      name: "张何",
-      ceshi: "测试ID",
-      list: ["测试一", "测试二", "测试三", "测试四"],
+      name: '张何',
+      ceshi: '测试ID',
+      list: ['测试一', '测试二', '测试三', '测试四'],
     });
     const pareventFun = (e: object) => {
-      console.log(temRef,'7777777777');
-      con.list[0] = "我草变了";
+      console.log(temRef, '7777777777');
+      con.list[0] = '我草变了';
       // emit('par-hand',con.name)
-      emit("update:msg", "我干啊");
+      emit('update:msg', '我干啊');
     };
     watchEffect(() => {
-      //首次和props改变才会执行这里面的代码;注意内容里面要应用props才会更新
-      console.log("props---来了", propsPar.msg);
+      //首次和props也会更新;
+      console.log('props---来了', propsPar.msg);
     });
     // return toRefs(con)
     return {

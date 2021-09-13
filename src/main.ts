@@ -13,7 +13,7 @@ app.config.globalProperties.$mitt = mitt()
 app.directive('custInst', {
 	beforeMount(el, binding, vnode, prevVnode) {
 		el.style.background = 'red'
-		console.log(vnode, prevVnode);
+		console.log(el, binding, vnode, prevVnode);
 		el.addEventListener('click', () => {
 			console.log('老惦记我');
 			binding.value('蒹葭苍苍')

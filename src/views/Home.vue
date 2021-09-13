@@ -35,14 +35,14 @@ import {
   isRef,
   getCurrentInstance,
   provide,
-} from "vue";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
-import sha from "./shallowReactive_shallowRef.vue";
-import zhang from "./zhang.vue";
-import he from "./he.vue";
-import { useStore } from "vuex"; //vuex的使用
+} from 'vue';
+import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+import sha from './shallowReactive_shallowRef.vue';
+import zhang from './zhang.vue';
+import he from './he.vue';
+import { useStore } from 'vuex'; //vuex的使用
 export default defineComponent({
-  name: "Home",
+  name: 'Home',
   components: {
     HelloWorld,
     sha,
@@ -53,28 +53,28 @@ export default defineComponent({
   setup() {
     const { ctx }: any = getCurrentInstance();
     //provide的用法
-    provide("pcd", "home传provide");
+    provide('pcd', 'home传provide');
     onMounted(() => {
-      console.log("生命周期的mounted");
+      console.log('生命周期的mounted');
       console.log(ctx);
-      console.log(ctx.$router, "路由跳转路由");
-      console.log(ctx.$router.currentRoute.value, "获取当前路由");
+      console.log(ctx.$router, '路由跳转路由');
+      console.log(ctx.$router.currentRoute.value, '获取当前路由');
     });
-    const changsText = ref("双向绑定");
+    const changsText = ref('双向绑定');
     const num = ref(20); //数组、对象、字符串个都可以
     console.log(isRef(num)); //isRef来判断是不是ref
     const zhang: any = reactive({
       //要重新赋值界面才能更新
       age: 18,
-      name: "周杰伦",
+      name: '周杰伦',
       dataList: computed(() => zhang.age + 3),
-      testValue: "测试watchEffect",
+      testValue: '测试watchEffect',
     });
     const btnFun = () => {
       zhang.age = 545;
-      zhang.name = "天王";
+      zhang.name = '天王';
       num.value = 50;
-      zhang.testValue = "我靠变了";
+      zhang.testValue = '我靠变了';
     };
     const handFun = (con: string) => {
       console.log(con);
@@ -104,7 +104,7 @@ export default defineComponent({
     const custInst = (datas: any) => {
       console.log(datas, 2);
     };
-    const custColor = ref("red");
+    const custColor = ref('red');
     // const zifu = (e: any) => {
     //   console.log("子元素点击浮云苏", e);
     // };
@@ -121,7 +121,7 @@ export default defineComponent({
   },
 });
 </script>
-<style lang="less" scoped vars='{custColor}'>
+<style lang="less" scoped vars="{custColor}">
 .mp {
   color: var(--custColor);
 }
